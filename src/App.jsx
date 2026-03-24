@@ -86,9 +86,8 @@ const roleCopy = {
 }
 
 const primaryAccess = {
-  title: 'Admin access',
-  email: 'adityachauhan178@gmail.com',
-  password: 'aditya@123',
+  title: 'Admin sign-in',
+  description: 'Use the primary admin account to review institute onboarding, subscriptions, platform settings, and the full EduPilot workflow.',
 }
 
 const riskTone = {
@@ -1177,6 +1176,16 @@ function App() {
     setAuthError('')
   }
 
+  function prepareAdminLogin() {
+    setAuthMode('login')
+    setAuthForm((current) => ({
+      ...current,
+      email: 'adityachauhan178@gmail.com',
+      password: '',
+    }))
+    pushToast('success', 'Admin sign-in ready', 'The login form is prepared for the primary admin account.')
+  }
+
   function resetWorkspaceForStudentList(studentList, role) {
     setStudents(studentList)
     if (studentList.length > 0) {
@@ -1486,20 +1495,13 @@ function App() {
             </div>
             <div className="demo-card">
               <h3>{primaryAccess.title}</h3>
-              <p className="hero-text">
-                Use the primary admin account to review the full institute workflow, platform settings, onboarding story,
-                subscription surfaces, and student intelligence dashboards.
-              </p>
-              <ul>
-                <li>
-                  <strong>Admin email</strong>
-                  <span>{primaryAccess.email}</span>
-                </li>
-                <li>
-                  <strong>Password</strong>
-                  <code>{primaryAccess.password}</code>
-                </li>
-              </ul>
+              <p className="hero-text">{primaryAccess.description}</p>
+              <div className="hero-actions">
+                <button type="button" className="primary-link button-link" onClick={prepareAdminLogin}>
+                  Open admin sign-in
+                </button>
+                <span className="muted-copy">Credentials are not shown on the public landing page.</span>
+              </div>
             </div>
           </div>
 

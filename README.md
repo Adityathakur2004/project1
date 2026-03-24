@@ -62,7 +62,7 @@ Default local ports:
 
 ## Admin Access
 
-- `adityachauhan178@gmail.com` / `aditya@123`
+The seeded primary admin account is available for deployment and institute onboarding, but credentials are intentionally not displayed in the public-facing README or landing page.
 
 ## Environment Variables
 
