@@ -136,8 +136,9 @@ vite.config.js
 
 For production, use:
 - a Postgres database
-- a backend service for `server.js`
-- a frontend static deployment for the Vite build
+- the Express server in [server.js](/Users/LENOVO/Downloads/codex/server.js) to serve both API routes and the built frontend
+
+The production server now serves the contents of `dist/` directly, so you can deploy EduPilot as a single full-stack service.
 
 If frontend and backend are deployed on different domains, set:
 
@@ -151,8 +152,44 @@ Recommended deployment flow:
 2. Set environment variables.
 3. Run `npm run migrate`.
 4. Run `npm run seed:db`.
-5. Deploy backend.
-6. Build and deploy frontend.
+5. Run `npm run build`.
+6. Start `node server.js`.
+
+## Docker Deployment
+
+This repo includes:
+- [Dockerfile](/Users/LENOVO/Downloads/codex/Dockerfile)
+- [docker-compose.yml](/Users/LENOVO/Downloads/codex/docker-compose.yml)
+
+To run the full stack with Docker:
+
+```bash
+docker compose up --build
+```
+
+This starts:
+- EduPilot app on `http://localhost:4000`
+- Postgres on `localhost:5432`
+
+The compose setup automatically runs:
+- migrations
+- database seeding
+- the production server
+
+## Render Deployment
+
+This repo includes [render.yaml](/Users/LENOVO/Downloads/codex/render.yaml) for a simple hosted setup.
+
+It provisions:
+- one Node web service
+- one Postgres database
+
+Render start flow:
+- `npm run migrate`
+- `npm run seed:db`
+- `node server.js`
+
+If you want AI-written reports in production, set `OPENAI_API_KEY` in Render.
 
 ## Product Areas
 

@@ -1,0 +1,28 @@
+databases:
+  - name: edupilot-db
+    databaseName: edupilot
+    user: edupilot
+    plan: free
+
+services:
+  - type: web
+    name: edupilot
+    runtime: node
+    plan: free
+    buildCommand: npm ci && npm run build
+    startCommand: npm run migrate && npm run seed:db && node server.js
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: PORT
+        value: 4000
+      - key: PGSSL
+        value: disable
+      - key: OPENAI_MODEL
+        value: gpt-4.1-mini
+      - key: DATABASE_URL
+        fromDatabase:
+          name: edupilot-db
+          property: connectionString
+      - key: OPENAI_API_KEY
+        sync: false

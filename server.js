@@ -14,11 +14,12 @@ import { fileURLToPath } from 'url'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const dataDir = path.join(__dirname, 'data')
+const distDir = path.join(__dirname, 'dist')
 const studentsFile = path.join(dataDir, 'students.json')
 const usersFile = path.join(dataDir, 'users.json')
 const invitesFile = path.join(dataDir, 'invites.json')
 const app = express()
-const port = 4000
+const port = Number(process.env.PORT || 4000)
 const tokenSecret = 'edupilot-local-secret'
 const { Pool } = pg
 
@@ -1348,6 +1349,23 @@ app.delete('/api/students/:id', authMiddleware, async (req, res) => {
   return res.json({ ok: true })
 })
 
+app.use(express.static(distDir))
+
+app.use(async (req, res, next) => {
+  if (req.path.startsWith('/api')) {
+    return next()
+  }
+
+  try {
+    await fs.access(path.join(distDir, 'index.html'))
+    return res.sendFile(path.join(distDir, 'index.html'))
+  } catch {
+    return res
+      .status(404)
+      .send('Frontend build not found. Run "npm run build" for production or "npm run dev" for local development.')
+  }
+})
+
 app.listen(port, () => {
-  console.log(`EduPilot API listening on http://localhost:${port}`)
+  console.log(`EduPilot server listening on http://localhost:${port}`)
 })
