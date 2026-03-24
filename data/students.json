@@ -1,0 +1,176 @@
+[
+  {
+    "id": "student-aarav-sharma",
+    "name": "Aarav Sharma",
+    "target": "JEE Advanced 2027",
+    "classLevel": "Class 11",
+    "city": "Kota",
+    "studyHours": 5.8,
+    "revisionHours": 0.8,
+    "mockScore": 142,
+    "attendance": 89,
+    "consistency": 74,
+    "practiceTests": 2,
+    "syllabusCompletion": 62,
+    "status": "At Risk",
+    "priority": "High",
+    "nextReviewDate": "2026-03-29",
+    "mentorNotes": "Needs immediate focus on Physics backlog and more disciplined revision blocks before the next mock.",
+    "interventions": [
+      {
+        "id": "intervention-physics-sprint",
+        "title": "Physics recovery sprint",
+        "status": "In Progress",
+        "owner": "Riya Mehta",
+        "dueDate": "2026-03-27",
+        "impact": "High",
+        "notes": "Daily Mechanics practice with timer and same-day error review."
+      },
+      {
+        "id": "intervention-revision-loop",
+        "title": "Revision loop rebuild",
+        "status": "Planned",
+        "owner": "Aarav Sharma",
+        "dueDate": "2026-03-30",
+        "impact": "Medium",
+        "notes": "Add two evening revision blocks and one oral recall session each week."
+      }
+    ],
+    "subjects": [
+      {
+        "name": "Physics",
+        "score": 58,
+        "benchmark": 74,
+        "chaptersDone": 7,
+        "totalChapters": 11,
+        "weakTopic": "Rotational Motion"
+      },
+      {
+        "name": "Chemistry",
+        "score": 66,
+        "benchmark": 72,
+        "chaptersDone": 8,
+        "totalChapters": 10,
+        "weakTopic": "Chemical Bonding"
+      },
+      {
+        "name": "Mathematics",
+        "score": 71,
+        "benchmark": 76,
+        "chaptersDone": 9,
+        "totalChapters": 12,
+        "weakTopic": "Quadratic Equations"
+      }
+    ]
+  },
+  {
+    "id": "student-kavya-reddy",
+    "name": "Kavya Reddy",
+    "target": "NEET 2027",
+    "classLevel": "Class 11",
+    "city": "Hyderabad",
+    "studyHours": 7.1,
+    "revisionHours": 1.9,
+    "mockScore": 522,
+    "attendance": 94,
+    "consistency": 86,
+    "practiceTests": 3,
+    "syllabusCompletion": 76,
+    "status": "Watchlist",
+    "priority": "Medium",
+    "nextReviewDate": "2026-03-31",
+    "mentorNotes": "Biology is strong. Physics numericals still need timed practice before the next full-length test.",
+    "interventions": [
+      {
+        "id": "intervention-phy-speed",
+        "title": "Physics speed reinforcement",
+        "status": "In Progress",
+        "owner": "Riya Mehta",
+        "dueDate": "2026-03-28",
+        "impact": "High",
+        "notes": "Three timed numerical sets across mechanics and current electricity."
+      }
+    ],
+    "subjects": [
+      {
+        "name": "Physics",
+        "score": 63,
+        "benchmark": 72,
+        "chaptersDone": 8,
+        "totalChapters": 11,
+        "weakTopic": "Current Electricity"
+      },
+      {
+        "name": "Chemistry",
+        "score": 74,
+        "benchmark": 76,
+        "chaptersDone": 9,
+        "totalChapters": 10,
+        "weakTopic": "Equilibrium"
+      },
+      {
+        "name": "Biology",
+        "score": 82,
+        "benchmark": 84,
+        "chaptersDone": 10,
+        "totalChapters": 11,
+        "weakTopic": "Plant Physiology"
+      }
+    ]
+  },
+  {
+    "id": "student-vihaan-gupta",
+    "name": "Vihaan Gupta",
+    "target": "JEE Main 2027",
+    "classLevel": "Class 11",
+    "city": "Delhi",
+    "studyHours": 6.7,
+    "revisionHours": 1.4,
+    "mockScore": 176,
+    "attendance": 91,
+    "consistency": 82,
+    "practiceTests": 3,
+    "syllabusCompletion": 73,
+    "status": "On Track",
+    "priority": "Low",
+    "nextReviewDate": "2026-04-02",
+    "mentorNotes": "Overall doing well. Needs to protect revision on chemistry memory-based chapters.",
+    "interventions": [
+      {
+        "id": "intervention-chem-retention",
+        "title": "Chemistry retention maintenance",
+        "status": "Planned",
+        "owner": "Vihaan Gupta",
+        "dueDate": "2026-03-30",
+        "impact": "Medium",
+        "notes": "Alternate-day flashcards and short recall tests."
+      }
+    ],
+    "subjects": [
+      {
+        "name": "Physics",
+        "score": 72,
+        "benchmark": 74,
+        "chaptersDone": 8,
+        "totalChapters": 10,
+        "weakTopic": "Work, Power and Energy"
+      },
+      {
+        "name": "Chemistry",
+        "score": 68,
+        "benchmark": 72,
+        "chaptersDone": 8,
+        "totalChapters": 10,
+        "weakTopic": "Periodic Properties"
+      },
+      {
+        "name": "Mathematics",
+        "score": 77,
+        "benchmark": 78,
+        "chaptersDone": 9,
+        "totalChapters": 11,
+        "weakTopic": "Sequences and Series"
+      }
+    ]
+  }
+]

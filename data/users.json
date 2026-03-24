@@ -1,0 +1,32 @@
+[
+  {
+    "id": "user-mentor-demo",
+    "name": "Riya Mehta",
+    "email": "mentor@edupilot.demo",
+    "passwordHash": "82e8de28db9322bb2f61846926820b8d:77c318653a5931b97a6d5a06854a0d5152dc0fc766cb2ca5814280a76efd233d13c5aa5dea6611e18aeeb1f0bea4be1e781061c8cc98474fa3f66f896e8dd8c9",
+    "role": "mentor",
+    "studentIds": [
+      "student-aarav-sharma"
+    ]
+  },
+  {
+    "id": "user-student-demo",
+    "name": "Aarav Sharma",
+    "email": "student@edupilot.demo",
+    "passwordHash": "82e8de28db9322bb2f61846926820b8d:77c318653a5931b97a6d5a06854a0d5152dc0fc766cb2ca5814280a76efd233d13c5aa5dea6611e18aeeb1f0bea4be1e781061c8cc98474fa3f66f896e8dd8c9",
+    "role": "student",
+    "studentIds": [
+      "student-aarav-sharma"
+    ]
+  },
+  {
+    "id": "user-parent-demo",
+    "name": "Sunita Sharma",
+    "email": "parent@edupilot.demo",
+    "passwordHash": "82e8de28db9322bb2f61846926820b8d:77c318653a5931b97a6d5a06854a0d5152dc0fc766cb2ca5814280a76efd233d13c5aa5dea6611e18aeeb1f0bea4be1e781061c8cc98474fa3f66f896e8dd8c9",
+    "role": "parent",
+    "studentIds": [
+      "student-aarav-sharma"
+    ]
+  }
+]
