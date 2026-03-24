@@ -112,6 +112,15 @@ npm run seed:db:reset
 - `npm run build`: build frontend for production
 - `npm run preview`: preview production frontend build
 
+## CI
+
+GitHub Actions is configured in [.github/workflows/ci.yml](/Users/LENOVO/Downloads/codex/.github/workflows/ci.yml).
+
+Each push and pull request runs:
+- `npm ci`
+- `npm run lint`
+- `npm run build`
+
 ## Project Structure
 
 ```text
@@ -222,6 +231,7 @@ The app automatically switches between:
 - normalized Postgres mode when `DATABASE_URL` is available
 
 You can inspect the live runtime status from the in-app `Platform settings` page.
+The backend also logs startup warnings when important production variables such as `DATABASE_URL` or `OPENAI_API_KEY` are missing.
 
 ## Verification
 

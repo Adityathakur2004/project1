@@ -197,6 +197,28 @@
   flex-wrap: wrap;
 }
 
+.launch-points {
+  display: grid;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.launch-point {
+  padding: 16px 18px;
+  border-radius: 20px;
+  border: 1px solid rgba(23, 37, 34, 0.08);
+  background: rgba(255, 255, 255, 0.66);
+}
+
+.launch-point strong {
+  color: var(--text-strong);
+}
+
+.launch-point p {
+  margin: 8px 0 0;
+  color: var(--muted);
+}
+
 .curriculum-actions {
   display: flex;
   gap: 12px;

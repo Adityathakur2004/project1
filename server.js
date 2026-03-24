@@ -25,6 +25,36 @@ const { Pool } = pg
 
 dotenv.config()
 
+function getEnvironmentHealth() {
+  return {
+    databaseConfigured: Boolean(process.env.DATABASE_URL),
+    openaiConfigured: Boolean(process.env.OPENAI_API_KEY),
+    apiBaseConfigured: Boolean(process.env.VITE_API_BASE_URL),
+    nodeEnv: process.env.NODE_ENV || 'development',
+  }
+}
+
+function logEnvironmentWarnings() {
+  const envHealth = getEnvironmentHealth()
+  const warnings = []
+
+  if (!envHealth.databaseConfigured) {
+    warnings.push('DATABASE_URL is not set. EduPilot will run on local JSON fallback storage.')
+  }
+
+  if (!envHealth.openaiConfigured) {
+    warnings.push('OPENAI_API_KEY is not set. AI-generated reports will use fallback mode.')
+  }
+
+  if (envHealth.nodeEnv === 'production' && !envHealth.databaseConfigured) {
+    warnings.push('Production mode is active without Postgres. Configure DATABASE_URL before real deployment.')
+  }
+
+  warnings.forEach((warning) => {
+    console.warn(`[EduPilot config] ${warning}`)
+  })
+}
+
 const pool = process.env.DATABASE_URL
   ? new Pool({
       connectionString: process.env.DATABASE_URL,
@@ -34,6 +64,8 @@ const pool = process.env.DATABASE_URL
 
 const openai = process.env.OPENAI_API_KEY ? new OpenAI({ apiKey: process.env.OPENAI_API_KEY }) : null
 let normalizedSeedPromise = null
+
+logEnvironmentWarnings()
 
 app.use(cors())
 app.use(express.json())
@@ -978,11 +1010,13 @@ async function authMiddleware(req, res, next) {
 }
 
 app.get('/api/health', (_req, res) => {
+  const envHealth = getEnvironmentHealth()
   res.json({
     ok: true,
     date: new Date().toISOString(),
     storage: pool ? 'postgres' : 'json',
     aiReports: openai ? 'openai' : 'fallback',
+    environment: envHealth,
   })
 })
 

@@ -1380,10 +1380,25 @@ function App() {
         <section className="auth-shell">
           <div className="hero-copy auth-copy">
             <span className="eyebrow">EduPilot access layer</span>
-            <h1>Sign in to the role-based student intelligence platform.</h1>
+            <h1>Turn student performance, curriculum gaps, and job-readiness into one operating system.</h1>
             <p className="hero-text">
-              Mentors can manage records, students can view recovery plans, and parents get a focused progress summary.
+              EduPilot helps mentors, students, and parents move from scattered scores to actionable decisions:
+              benchmark analysis, curriculum comparison, parent reporting, and market-skill guidance in one place.
             </p>
+            <div className="launch-points">
+              <article className="launch-point">
+                <strong>Academic intelligence</strong>
+                <p>Track syllabus pace, weak topics, revision health, and intervention plans across each learner.</p>
+              </article>
+              <article className="launch-point">
+                <strong>Curriculum comparison</strong>
+                <p>Upload a university syllabus and compare it against IIT/NIT-style benchmarks plus market skill demand.</p>
+              </article>
+              <article className="launch-point">
+                <strong>Startup-ready workflow</strong>
+                <p>Role-based access, parent PDFs, platform settings, Postgres support, and deployment setup are already included.</p>
+              </article>
+            </div>
             <div className="demo-card">
               <h3>Demo accounts</h3>
               <ul>
