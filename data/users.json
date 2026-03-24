@@ -1,5 +1,17 @@
 [
   {
+    "id": "user-admin-primary",
+    "name": "Aditya Chauhan",
+    "email": "adityachauhan178@gmail.com",
+    "passwordHash": "e051fcd20ed3cd7dd6ca999ac6e8bd9b:fe35593d7caffe197d4c416bbefc884813876610bff97fe2a64205e11536315aa49da7d7c53b6f331b61d3319a9d3659a46e23e9a0225ec4c1ce6c931b5d4dab",
+    "role": "admin",
+    "studentIds": [
+      "student-aarav-sharma",
+      "student-kavya-reddy",
+      "student-vihaan-gupta"
+    ]
+  },
+  {
     "id": "user-mentor-demo",
     "name": "Riya Mehta",
     "email": "mentor@edupilot.demo",

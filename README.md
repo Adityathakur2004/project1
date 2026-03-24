@@ -3,7 +3,7 @@
 EduPilot is a full-stack student intelligence platform for academic performance analysis, curriculum gap detection, and personalized improvement planning.
 
 It combines:
-- role-based dashboards for mentors, students, and parents
+- role-based dashboards for admins, mentors, students, and parents
 - benchmark comparison for competitive exam readiness
 - curriculum comparison against top Indian institute expectations and market skills
 - parent-facing reports and PDF export
@@ -18,7 +18,7 @@ EduPilot helps a student or institute answer:
 - what should be learned next for exams or job readiness
 
 The app currently includes:
-- authenticated access with `mentor`, `student`, and `parent` roles
+- authenticated access with `admin`, `mentor`, `student`, and `parent` roles
 - student profile CRUD
 - intervention tracker and review workflow
 - assignment and invite flows
@@ -60,11 +60,9 @@ Default local ports:
 - frontend: `http://localhost:5173`
 - backend: `http://localhost:4000`
 
-## Demo Accounts
+## Admin Access
 
-- `mentor@edupilot.demo` / `edupilot123`
-- `student@edupilot.demo` / `edupilot123`
-- `parent@edupilot.demo` / `edupilot123`
+- `adityachauhan178@gmail.com` / `aditya@123`
 
 ## Environment Variables
 

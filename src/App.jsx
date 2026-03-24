@@ -67,6 +67,10 @@ const benchmarkMap = {
 }
 
 const roleCopy = {
+  admin: {
+    title: 'Admin command center',
+    description: 'Oversee institute onboarding, subscription readiness, mentor operations, and student performance from one control layer.',
+  },
   mentor: {
     title: 'Mentor workspace',
     description: 'Create student records, update subject performance, and drive recovery plans.',
@@ -81,11 +85,11 @@ const roleCopy = {
   },
 }
 
-const demoCredentials = [
-  { role: 'Mentor', email: 'mentor@edupilot.demo', password: 'edupilot123' },
-  { role: 'Student', email: 'student@edupilot.demo', password: 'edupilot123' },
-  { role: 'Parent', email: 'parent@edupilot.demo', password: 'edupilot123' },
-]
+const primaryAccess = {
+  title: 'Admin access',
+  email: 'adityachauhan178@gmail.com',
+  password: 'aditya@123',
+}
 
 const riskTone = {
   High: 'risk-high',
@@ -499,6 +503,44 @@ function EnvironmentStatusCard({ systemHealth, healthLoading, refreshSystemHealt
   const aiReady = systemHealth?.aiReports === 'openai'
   const apiReady = systemHealth?.ok === true
   const lastCheck = systemHealth?.date ? new Date(systemHealth.date).toLocaleString('en-IN') : 'Pending'
+  const onboardingSteps = [
+    {
+      title: 'Institute setup',
+      detail: 'Create the institute profile, add admin ownership, and define the first academic cohort.',
+      state: 'Ready now',
+    },
+    {
+      title: 'Mentor onboarding',
+      detail: 'Invite mentors, assign learners, and connect review dates, interventions, and subject ownership.',
+      state: 'Ready now',
+    },
+    {
+      title: 'Parent and student rollout',
+      detail: 'Share access links, publish reports, and turn the dashboard into the institute communication layer.',
+      state: 'Ready now',
+    },
+  ]
+
+  const subscriptionPlans = [
+    {
+      name: 'Starter',
+      price: 'Rs 4,999 / month',
+      fit: 'Small coaching batches or pilot programs',
+      points: '50 learners, mentor dashboards, curriculum comparison, fallback reports',
+    },
+    {
+      name: 'Growth',
+      price: 'Rs 14,999 / month',
+      fit: 'Growing institute operations',
+      points: '250 learners, parent PDFs, cohort analytics, onboarding workflows, AI reports',
+    },
+    {
+      name: 'Enterprise',
+      price: 'Custom',
+      fit: 'Multi-campus institutes and school groups',
+      points: 'Unlimited learners, custom deployment, white-labeling, managed onboarding',
+    },
+  ]
 
   const readinessItems = [
     {
@@ -584,6 +626,49 @@ function EnvironmentStatusCard({ systemHealth, healthLoading, refreshSystemHealt
         <article className="panel">
           <div className="panel-heading">
             <div>
+              <span className="eyebrow">Institute onboarding</span>
+              <h2>How a coaching center or college can go live</h2>
+            </div>
+          </div>
+          <div className="settings-list">
+            {onboardingSteps.map((step) => (
+              <article key={step.title} className="settings-list__item">
+                <div className="settings-status-topline">
+                  <strong>{step.title}</strong>
+                  <span className="risk-chip risk-low">{step.state}</span>
+                </div>
+                <p>{step.detail}</p>
+              </article>
+            ))}
+          </div>
+        </article>
+
+        <article className="panel">
+          <div className="panel-heading">
+            <div>
+              <span className="eyebrow">Subscription models</span>
+              <h2>Pricing story for startup and institute demos</h2>
+            </div>
+          </div>
+          <div className="settings-status-grid">
+            {subscriptionPlans.map((plan) => (
+              <article key={plan.name} className="settings-status-card">
+                <div className="settings-status-topline">
+                  <strong>{plan.name}</strong>
+                  <span className="risk-chip risk-medium">{plan.price}</span>
+                </div>
+                <p>{plan.fit}</p>
+                <p>{plan.points}</p>
+              </article>
+            ))}
+          </div>
+        </article>
+      </div>
+
+      <div className="content-grid">
+        <article className="panel">
+          <div className="panel-heading">
+            <div>
               <span className="eyebrow">Setup commands</span>
               <h2>Fast path to bring a new environment online</h2>
             </div>
@@ -633,8 +718,8 @@ function EnvironmentStatusCard({ systemHealth, healthLoading, refreshSystemHealt
               <p>The server automatically uses normalized Postgres tables when a database URL exists, otherwise it falls back to local JSON.</p>
             </article>
             <article className="settings-list__item">
-              <strong>Demo access</strong>
-              <p>Demo mentor, student, and parent accounts remain available for product walkthroughs and QA.</p>
+              <strong>Primary admin access</strong>
+              <p>Use the admin account to drive institute onboarding, pricing conversations, and full-platform walkthroughs.</p>
             </article>
             <article className="settings-list__item">
               <strong>Reports</strong>
@@ -1400,15 +1485,20 @@ function App() {
               </article>
             </div>
             <div className="demo-card">
-              <h3>Demo accounts</h3>
+              <h3>{primaryAccess.title}</h3>
+              <p className="hero-text">
+                Use the primary admin account to review the full institute workflow, platform settings, onboarding story,
+                subscription surfaces, and student intelligence dashboards.
+              </p>
               <ul>
-                {demoCredentials.map((item) => (
-                  <li key={item.role}>
-                    <strong>{item.role}</strong>
-                    <span>{item.email}</span>
-                    <code>{item.password}</code>
-                  </li>
-                ))}
+                <li>
+                  <strong>Admin email</strong>
+                  <span>{primaryAccess.email}</span>
+                </li>
+                <li>
+                  <strong>Password</strong>
+                  <code>{primaryAccess.password}</code>
+                </li>
               </ul>
             </div>
           </div>
