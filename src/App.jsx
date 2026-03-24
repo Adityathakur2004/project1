@@ -3,6 +3,7 @@ import './App.css'
 
 const CohortCharts = lazy(() => import('./components/CohortCharts.jsx'))
 const CurriculumComparisonPage = lazy(() => import('./components/CurriculumComparisonPage.jsx'))
+const apiBaseUrl = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '')
 
 const subjectTemplate = [
   { name: 'Physics', score: 58, benchmark: 74, chaptersDone: 7, totalChapters: 11, weakTopic: 'Rotational Motion' },
@@ -369,6 +370,7 @@ function buildMentorReport(students, cohort, selectedStudent, analytics) {
 }
 
 async function apiFetch(path, options = {}, token = '') {
+  const requestUrl = path.startsWith('/api') && apiBaseUrl ? `${apiBaseUrl}${path}` : path
   const headers = {
     'Content-Type': 'application/json',
     ...(options.headers ?? {}),
@@ -378,7 +380,7 @@ async function apiFetch(path, options = {}, token = '') {
     headers.Authorization = `Bearer ${token}`
   }
 
-  const response = await fetch(path, {
+  const response = await fetch(requestUrl, {
     ...options,
     headers,
   })
